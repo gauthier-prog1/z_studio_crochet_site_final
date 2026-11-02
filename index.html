@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>z_studio_crochet Scrapbook</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="head">
+    <div class="wrap head-in">
+      <nav class="left" aria-label="Navigation principale">
+        <a href="#collections">Collections</a>
+        <a href="#mur">Créations</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+        <span class="lbl">Menu</span>
+      </button>
+      <a href="#accueil" aria-label="z_studio_crochet, retour à l’accueil"><img class="logo" src="images/logo-full.png"
+          alt="" width="1116" height="746"></a>
+      <nav class="right" aria-label="Navigation secondaire">
+        <a href="#histoire">Mon histoire</a>
+        <a href="#contact">Contact</a>
+        <button class="fav-btn" type="button" id="fav-open" aria-haspopup="dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
+          </svg>
+          <span class="lbl">Coups de cœur</span>
+          <span class="fav-count" id="fav-count">0</span>
+          <span class="sr-only"> création(s) choisie(s)</span>
+        </button>
+      </nav>
+      <nav class="mnav" id="mnav" aria-label="Menu mobile">
+        <a href="#collections">Collections</a>
+        <a href="#mur">Créations</a>
+        <a href="#histoire">Mon histoire</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <p class="kicker">bienvenue à l’atelier !</p>
+          <h1>Des mailles toutes douces pour les jours <span class="hl">cocooning<svg viewBox="0 0 300 18"
+                preserveAspectRatio="none" aria-hidden="true">
+                <path d="M4 12 C 60 2, 110 18, 160 9 S 250 4, 296 10" fill="none" stroke="#F7D2DA" stroke-width="7"
+                  stroke-linecap="round" />
+              </svg></span></h1>
+          <p class="lead">Doudous, accessoires, déco et vêtements au crochet, faits main et en couleurs pastel. Choisis
+            tes coups de cœur, je crochète le reste.</p>
+          <div class="cta">
+            <a class="btn btn-rasp" href="#mur">Voir le mur des créations</a>
+            <a class="btn btn-paper" href="#contact">Commander</a>
+          </div>
+        </div>
+        <div class="board" aria-hidden="true">
+          <div class="pola p1"><span class="tape"></span>
+            <div class="ph" data-illus="lapin"></div><span class="cap">Lapin Câlin</span>
+          </div>
+          <div class="pola p2"><span class="tape"></span>
+            <div class="ph" data-illus="sac"></div><span class="cap">Sac Coquillage</span>
+          </div>
+          <div class="pola p3"><span class="tape"></span>
+            <div class="ph" data-illus="bob"></div><span class="cap">Bob Fraise</span>
+          </div>
+          <div class="sticker">
+            <svg viewBox="0 0 200 200">
+              <defs>
+                <path id="circ" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0" />
+              </defs><text textLength="486" lengthAdjust="spacingAndGlyphs">
+                <textPath href="#circ" textLength="486" lengthAdjust="spacingAndGlyphs">z_studio_crochet · fait main ·
+                  pièces uniques ·</textPath>
+              </text>
+            </svg>
+            <img src="images/logo-pelote.png" alt="" width="870" height="746">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee">
+        <div class="marquee-track" id="marquee"></div>
+      </div>
+    </div>
+
+    <section class="section" id="collections">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">par ici la douceur</p>
+            <h2>Les collections</h2>
+          </div>
+          <div class="strip-ctrl">
+            <button class="round-btn" type="button" id="strip-prev" aria-label="Collection précédente"><svg width="20"
+                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+              </svg></button>
+            <button class="round-btn" type="button" id="strip-next" aria-label="Collection suivante"><svg width="20"
+                height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+              </svg></button>
+          </div>
+        </div>
+        <div class="strip" id="strip"></div>
+      </div>
+    </section>
+
+    <section class="section wall" id="mur">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">épinglées avec amour</p>
+            <h2>Le mur des créations</h2>
+            <p>Touche une photo pour la voir de plus près, et le cœur pour la garder dans tes coups de cœur.</p>
+          </div>
+        </div>
+        <div class="stickers" id="stickers" role="group" aria-label="Filtrer les créations"></div>
+        <ul class="polas" id="polas"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="histoire">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">un peu de moi</p>
+            <h2>Mon histoire</h2>
+          </div>
+        </div>
+        <div class="story">
+          <div class="story-row">
+            <div class="story-pic">
+              <div class="pola"><span class="tape"></span>
+                <div class="ph" data-illus="panier"></div><span class="cap">mes pelotes</span>
+              </div>
+            </div>
+            <div class="story-text">
+              <p class="kicker">chapitre 1</p>
+              <h3>Une pelote, un crochet</h3>
+              <p>Derrière z_studio_crochet. Chaque pièce commence de la même façon : une pelote toute douce, un crochet,
+                et l’envie de créer quelque chose qui fait du bien.</p>
+            </div>
+          </div>
+          <div class="story-row">
+            <div class="story-pic">
+              <div class="pola"><span class="tape"></span>
+                <div class="ph" data-illus="granny"></div><span class="cap">mes couleurs</span>
+              </div>
+            </div>
+            <div class="story-text">
+              <p class="kicker">chapitre 2</p>
+              <h3>Des couleurs qui réchauffent</h3>
+              <p>Rose dragée, lilas, pêche, menthe : j’aime les teintes tendres qui donnent envie de se blottir. Et si
+                tu as ta palette à toi, je l’adopte avec plaisir.</p>
+            </div>
+          </div>
+          <div class="story-row">
+            <div class="story-pic">
+              <div class="pola"><span class="tape"></span>
+                <div class="ph" data-illus="coeur"></div><span class="cap">pour toi</span>
+              </div>
+            </div>
+            <div class="story-text">
+              <p class="kicker">chapitre 3</p>
+              <h3>Une pièce, une histoire</h3>
+              <p>Un doudou pour une naissance, un bonnet pour l’hiver, un bouquet qui ne fane pas… Chaque création est
+                pensée pour quelqu’un. Raconte-moi la tienne.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-sec" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">les petites questions</p>
+            <h2 id="faq-title">On se dit tout</h2>
+          </div>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Je peux choisir mes couleurs ?<span class="plus" aria-hidden="true"><svg width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span></summary>
+            <p>Oui ! Chaque création peut être faite dans les couleurs de ton choix. Dis-moi lesquelles dans ton
+              message.</p>
+          </details>
+          <details>
+            <summary>Combien de temps pour une commande ?<span class="plus" aria-hidden="true"><svg width="16"
+                  height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span></summary>
+            <p>Ça dépend de la pièce : un chouchou se fait bien plus vite qu’un plaid. Je te donne un délai précis avec
+              ton devis.</p>
+          </details>
+          <details>
+            <summary>Comment entretenir une pièce au crochet ?<span class="plus" aria-hidden="true"><svg width="16"
+                  height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span></summary>
+            <p>Lavage à la main à l’eau froide avec un savon doux, sans frotter, puis séchage à plat. Elle gardera sa
+              forme bien plus longtemps.</p>
+          </details>
+          <details>
+            <summary>Tu fais des pièces sur mesure ?<span class="plus" aria-hidden="true"><svg width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg></span></summary>
+            <p>Avec plaisir. Envoie-moi ton idée, même une photo d’inspiration, et on regarde ensemble ce qui est
+              possible.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap letter-wrap">
+        <div class="letter-side">
+          <p class="kicker">un petit mot ?</p>
+          <h2>Écris-moi une lettre</h2>
+          <p>Une commande, une question ou juste un coucou : remplis la lettre, puis choisis de me l’envoyer par
+            Instagram ou par e-mail.</p>
+          <p><a href="https://www.instagram.com/z_studio_crochet/" target="_blank" rel="noopener">@z_studio_crochet</a>
+          </p>
+          <p>E-mail : <span id="email-text">zstudiocrochet@gmail.com</span></p>
+        </div>
+        <div class="letter">
+          <span class="tape"></span>
+          <form class="form" id="letter-form" novalidate>
+            <p class="greet">Coucou z_studio_crochet !</p>
+            <div class="line-field"><label for="l-name">Je m’appelle</label><input id="l-name" autocomplete="given-name"
+                required></div>
+            <div class="line-field"><label for="l-email">et mon e-mail, c’est</label><input id="l-email" type="email"
+                autocomplete="email" required></div>
+            <div class="line-field"><label for="l-type">J’ai envie de</label>
+              <select id="l-type">
+                <option>commander une création</option>
+                <option>créer une pièce sur mesure</option>
+                <option>poser une question</option>
+                <option>te dire coucou</option>
+              </select>
+            </div>
+            <div class="line-field"><label for="l-msg">Voilà mon idée :</label><textarea id="l-msg" required></textarea>
+            </div>
+            <!-- Piège à robots : invisible pour les visiteurs, seuls les robots le cochent -->
+            <input type="checkbox" id="l-bot" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="form-error" id="l-error" role="alert"></p>
+            <div><button class="btn btn-rasp" type="submit">Préparer ma lettre</button></div>
+          </form>
+
+          <!-- Étape 2 : choisir comment envoyer la lettre -->
+          <div class="done" id="l-done" hidden>
+            <p class="greet">Ta lettre est prête !</p>
+            <blockquote id="l-summary"></blockquote>
+            <p class="choose" id="choose-title">Comment veux-tu me l’envoyer ?</p>
+            <div class="send-choices" role="group" aria-labelledby="choose-title">
+              <a class="send-choice" id="send-insta" href="https://www.instagram.com/z_studio_crochet/" target="_blank"
+                rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 12a8 8 0 1 1 3.4 6.5L4 20l1.4-3.6A7.9 7.9 0 0 1 4 12z" />
+                  <path d="M8.5 13.5l2.5-2.5 2 2 2.5-2.5" />
+                </svg>
+                <span><strong>Par Instagram</strong><small>En message privé</small></span>
+              </a>
+              <button class="send-choice" type="button" id="send-mail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" />
+                  <path d="M4 7l8 6 8-6" />
+                </svg>
+                <span><strong>Par e-mail</strong><small id="mail-sub">Directement dans ma boîte</small></span>
+              </button>
+            </div>
+            <p class="copy-status" id="l-status" aria-live="polite"></p>
+            <div class="done-actions">
+              <a class="btn btn-paper" id="mail-fallback" href="#" hidden>Ouvrir ma messagerie</a>
+              <button class="btn btn-paper" type="button" id="l-edit">Modifier ma lettre</button>
+            </div>
+          </div>
+
+          <!-- Étape 3 : lettre envoyée par e-mail -->
+          <div class="done" id="l-sent" hidden>
+            <p class="greet" id="sent-title" tabindex="-1">Ta lettre est bien partie !</p>
+            <p>Merci ! Je te réponds au plus vite à l’adresse <strong id="sent-email"></strong>.</p>
+            <div><button class="btn btn-paper" type="button" id="l-new">Écrire une autre lettre</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <img src="images/logo-full.png" alt="z_studio_crochet" width="1116" height="746">
+      <nav aria-label="Liens du pied de page">
+        <a href="#collections">Collections</a>
+        <a href="#mur">Créations</a>
+        <a href="#histoire">Mon histoire</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/z_studio_crochet/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <p class="copy">© <span id="year">2026</span> z_studio_crochet · Créations au crochet faites main</p>
+    </div>
+  </footer>
+
+  <dialog class="modal" id="modal" aria-labelledby="m-name">
+    <div class="modal-in">
+      <button class="close-btn" type="button" id="m-close" aria-label="Fermer"><svg width="18" height="18"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"
+          aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg></button>
+      <div class="pola"><span class="tape"></span>
+        <div class="ph" id="m-media"></div><span class="cap" id="m-cap"></span>
+      </div>
+      <div class="m-info">
+        <p class="kicker" id="m-cat"></p>
+        <h2 id="m-name"></h2>
+        <p class="desc" id="m-desc"></p>
+        <dl class="m-facts">
+          <div>
+            <dt>Matière</dt>
+            <dd id="m-mat"></dd>
+          </div>
+          <div>
+            <dt>Fabrication</dt>
+            <dd>À la main, sur commande</dd>
+          </div>
+          <div>
+            <dt>Couleurs</dt>
+            <dd>Au choix</dd>
+          </div>
+        </dl>
+        <div class="cta">
+          <button class="btn btn-paper" type="button" id="m-fav"></button>
+          <button class="btn btn-rasp" type="button" id="m-order">La commander</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="dr-title">
+    <div class="drawer-in">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h2 id="dr-title">Mes coups de cœur</h2>
+        <button class="close-btn" style="position:static" type="button" id="dr-close" aria-label="Fermer"><svg
+            width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+            stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg></button>
+      </div>
+      <ul class="fav-list" id="fav-list"></ul>
+      <div class="fav-empty" id="fav-empty"><span class="hand">rien pour l’instant…</span>Touche le cœur d’une création
+        pour la garder ici.</div>
+      <button class="btn btn-rasp" type="button" id="fav-ask">Demander ces pièces</button>
+    </div>
+  </dialog>
+
+  <script src="js/creations.js"></script>
+  <script src="js/site.js"></script>
+</body>
+
+</html>
